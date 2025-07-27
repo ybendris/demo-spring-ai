@@ -1,0 +1,27 @@
+spring:
+  ai:
+    chat:
+      client:
+        enabled: false
+    vertex:
+      ai:
+        gemini:
+          chat:
+            options:
+              model: none
+        embedding:
+          text:
+            options:
+              model: none
+
+
+app:
+  translation:
+    preferences:
+      en-GB:
+        gilet: waistcoat
+        pull: jumper
+        tee-shirt: t-shirt
+    forbiddenWords:
+      en-GB:
+        - sherpa

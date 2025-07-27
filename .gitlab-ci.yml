@@ -10,27 +10,38 @@ variables:
   GCP_REGION: "europe-west1"
   GCP_REPOSITORY: "backend"
   GCP_ARTIFACT_REGISTRY: "$GCP_REGION-docker.pkg.dev"
-  APP_NAME: "demo-spring-ai"
-  APP_VERSION: "0.0.1-SNAPSHOT"
-  IMAGE_NAME: "$APP_NAME:$APP_VERSION"
-  GITLAB_IMAGE: "$CI_REGISTRY_IMAGE:$APP_VERSION"
+
+# Cache Maven pour accélérer build + test
+cache:
+  key: maven
+  paths:
+    - .m2/repository
 
 # Maven Build
 build:
-  image: maven:3.9.11-eclipse-temurin-24
+  image: maven:3.9.11-eclipse-temurin-21
   stage: build
   script:
-    - echo "Building the Spring Boot application"
+    - APP_NAME=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)
+    - APP_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+    - echo "APP_NAME=$APP_NAME" >> build.env
+    - echo "APP_VERSION=$APP_VERSION" >> build.env
+    - echo "GITLAB_IMAGE=$CI_REGISTRY_IMAGE:$APP_VERSION" >> build.env
+    - echo "IMAGE_NAME=$APP_NAME:$APP_VERSION" >> build.env
     - mvn $MAVEN_CLI_OPTS clean package -DskipTests
   artifacts:
     paths:
       - target/*.jar
+    reports:
+      dotenv: build.env
     expire_in: 1 day
 
 # Maven Test
 test:
-  image: maven:3.9.11-eclipse-temurin-24
+  image: maven:3.9.11-eclipse-temurin-21
   stage: test
+  dependencies:
+    - build
   script:
     - echo "Running tests"
     - mvn $MAVEN_CLI_OPTS test
@@ -38,12 +49,11 @@ test:
 docker_build:
   image: docker:24.0.5
   stage: docker_build
-  services:
-    - docker:24.0.5-dind
   before_script:
+    - docker info
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker build -t $GITLAB_IMAGE .
+    - docker build --build-arg APP_NAME=$APP_NAME -t $GITLAB_IMAGE .
     - docker push $GITLAB_IMAGE
 
 include:

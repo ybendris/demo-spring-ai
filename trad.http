@@ -1,0 +1,21 @@
+### POST translate
+POST http://localhost:8080/translate
+Content-Type: application/json
+
+{
+  "title": "Le T-shirt le plus sombre du magasin",
+  "description": "- Tee-shirt col rond en coton - 100% coton de haute qualité - Col rond classique - Manches courtes confortables - Noir véritable - Notre mannequin porte une taille M et mesure 1m89",
+  "locale": "en-GB"
+}
+
+
+### POST translate with RAG
+POST http://localhost:8080/translate/rag
+Content-Type: application/json
+
+{
+  "title": "Le T-shirt le plus sombre du magasin",
+  "description": "- Tee-shirt col rond en coton - 100% coton de haute qualité - Col rond classique - Manches courtes confortables - Noir véritable - Notre mannequin porte une taille M et mesure 1m89",
+  "locale": "en-GB"
+}
+

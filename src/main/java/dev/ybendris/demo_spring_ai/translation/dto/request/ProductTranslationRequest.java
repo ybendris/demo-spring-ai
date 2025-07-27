@@ -1,4 +1,4 @@
-package dev.ybendris.demo_spring_ai.translation.dto;
+package dev.ybendris.demo_spring_ai.translation.dto.request;
 
 import java.util.Locale;
 

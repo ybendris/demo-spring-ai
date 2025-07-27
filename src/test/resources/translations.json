@@ -1,0 +1,26 @@
+[
+  {
+    "sourceLanguage": "fr-FR",
+    "sourceTitle": "Un sweat basique idéal pour le quotidien !",
+    "sourceDescription": "- Sweat à capuche\n- En molleton non-gratté (french-terry)\n- Ouverture zippée\n- Manches longues\n- Couleur unie",
+    "targetLanguage": "it-IT",
+    "targetTitle": "Una felpa basica per tutti i giorni!",
+    "targetDescription": "- Felpa con cappuccio\n- In tessuto felpato (FRENCH terry)\n- Apertura con zip\n- Maniche lunghe\n- Colore tinta unita"
+  },
+  {
+    "sourceLanguage": "fr-FR",
+    "sourceTitle": "Un pyjama à petits prix, parfait pour votre prince !",
+    "sourceDescription": "Un pyjama à petits prix, parfait pour votre prince !\n\n- Tee-shirt en jersey\n- Col rond\n- Manches longues\n- Imprimé placé devant\n\n- Pantalon long uni\n- Taille élastique\n- Chevilles resserrées",
+    "targetLanguage": "it-IT",
+    "targetTitle": "Un pigiama a un prezzo mini, perfetto per il tuo principino!",
+    "targetDescription": "- T-shirt in jersey\n- Scollo tondo\n- Maniche lunghe\n- Stampa applicata davanti\n- Pantaloni lunghi tinta unita\n- Vita elasticizzata\n- Caviglie strette"
+  },
+  {
+    "sourceLanguage": "fr-FR",
+    "sourceTitle": "Un sweat basique idéal pour le quotidien !",
+    "sourceDescription": "- Sweat à capuche\n- En molleton non-gratté (french-terry)\n- Ouverture zippée\n- Manches longues\n- Couleur unie",
+    "targetLanguage": "nl-BE",
+    "targetTitle": "Een perfecte basic sweater voor je doordeweekse outfits!",
+    "targetDescription": "- Hoodie\n- French terry (joggingstof zonder geruwde binnenzijde)\n- Met rits\n- Lange mouw\n- Effen kleur"
+  }
+]

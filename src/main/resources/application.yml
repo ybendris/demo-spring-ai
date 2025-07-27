@@ -1,13 +1,48 @@
 spring:
+  cloud:
+    gcp:
+      project-id: <PROJECT_ID>
+#  config:
+#    import: sm@
+  data:
+    mongodb:
+      uri: <MONGO_URI>
+      database: translations
   ai:
+    vectorstore:
+      mongodb:
+        collection-name: vector_store
+        index-name: vector_index
+        path-name: embedding
+        metadata-fields-to-filter: sourceLanguage,sourceTitle,sourceDescription,targetLanguage,targetTitle,targetDescription
+        initialize-schema: true
+    chat:
+      observations:
+        log-prompt: true #log le prompt généré envoyé au LLM
+        log-completion: false #log la réponse du LLM
+
+      client:
+        observations:
+          log-prompt: false #log les prompts system et user
+
     vertex:
       ai:
         gemini:
-          project-id: ybendris-hub
+          project-id: <PROJECT_ID>
           location: europe-west1
           chat:
             options:
-              model: gemini-2.0-flash
+              model: gemini-2.0-flash-lite
+        embedding:
+          project-id: <PROJECT_ID>
+          location: europe-west1
+          text:
+            options:
+              model: text-embedding-004
+
+management:
+  server:
+    port: 8081
 
 logging:
   level:
@@ -16,15 +51,4 @@ logging:
         ai:
           chat:
             client:
-              advisor=DEBUG:
-
-app:
-  translation:
-    preferences:
-      en-GB:
-        gilet: waistcoat
-        pull: jumper
-        tee-shirt: t-shirt
-    forbiddenWords:
-      en-GB:
-        - sherpa
+              advisor: debug

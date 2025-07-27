@@ -3,10 +3,24 @@
   "name":"[B"
 },
 {
+  "name":"[Lcom.sun.management.internal.DiagnosticCommandArgumentInfo;"
+},
+{
+  "name":"[Lcom.sun.management.internal.DiagnosticCommandInfo;"
+},
+{
   "name":"[Ljava.lang.String;"
 },
 {
   "name":"[[B"
+},
+{
+  "name":"com.sun.management.internal.DiagnosticCommandArgumentInfo",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","boolean","boolean","boolean","int"] }]
+},
+{
+  "name":"com.sun.management.internal.DiagnosticCommandInfo",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String","java.lang.String","boolean","java.util.List"] }]
 },
 {
   "name":"io.grpc.netty.shaded.io.netty.handler.ssl.OpenSslClientSessionCache"
@@ -83,6 +97,10 @@
 {
   "name":"java.lang.String",
   "methods":[{"name":"<init>","parameterTypes":["byte[]"] }, {"name":"getBytes","parameterTypes":[] }]
+},
+{
+  "name":"java.util.Arrays",
+  "methods":[{"name":"asList","parameterTypes":["java.lang.Object[]"] }]
 },
 {
   "name":"sun.management.VMManagementImpl",
