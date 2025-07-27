@@ -1,0 +1,30 @@
+spring:
+  ai:
+    vertex:
+      ai:
+        gemini:
+          project-id: ybendris-hub
+          location: europe-west1
+          chat:
+            options:
+              model: gemini-2.0-flash
+
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor=DEBUG:
+
+app:
+  translation:
+    preferences:
+      en-GB:
+        gilet: waistcoat
+        pull: jumper
+        tee-shirt: t-shirt
+    forbiddenWords:
+      en-GB:
+        - sherpa

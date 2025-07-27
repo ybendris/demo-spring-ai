@@ -1,0 +1,54 @@
+stages:
+  - build
+  - test
+  - docker_build
+  - deploy
+
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end"
+  GCP_PROJECT_ID: "ybendris-hub"
+  GCP_REGION: "europe-west1"
+  GCP_REPOSITORY: "backend"
+  GCP_ARTIFACT_REGISTRY: "$GCP_REGION-docker.pkg.dev"
+  APP_NAME: "demo-spring-ai"
+  APP_VERSION: "0.0.1-SNAPSHOT"
+  IMAGE_NAME: "$APP_NAME:$APP_VERSION"
+  GITLAB_IMAGE: "$CI_REGISTRY_IMAGE:$APP_VERSION"
+
+# Maven Build
+build:
+  image: maven:3.9.11-eclipse-temurin-24
+  stage: build
+  script:
+    - echo "Building the Spring Boot application"
+    - mvn $MAVEN_CLI_OPTS clean package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 day
+
+# Maven Test
+test:
+  image: maven:3.9.11-eclipse-temurin-24
+  stage: test
+  script:
+    - echo "Running tests"
+    - mvn $MAVEN_CLI_OPTS test
+
+docker_build:
+  image: docker:24.0.5
+  stage: docker_build
+  services:
+    - docker:24.0.5-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $GITLAB_IMAGE .
+    - docker push $GITLAB_IMAGE
+
+include:
+  - component: gitlab.com/google-gitlab-components/artifact-registry/upload-artifact-registry@main
+    inputs:
+      stage: deploy
+      source: $GITLAB_IMAGE
+      target: $GCP_ARTIFACT_REGISTRY/$GCP_PROJECT_ID/$GCP_REPOSITORY/$IMAGE_NAME
