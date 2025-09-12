@@ -43,6 +43,13 @@ spring:
 management:
   server:
     port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  metrics:
+    tags:
+      application: my-spring-ai-app
 
 logging:
   level:

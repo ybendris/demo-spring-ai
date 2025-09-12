@@ -22,3 +22,6 @@
 ![vectorstore.png](images/7-vectorstore.png)
 
 ![rag.png](images/6-rag.png)
+
+## Observabilité
+http://localhost:8081/actuator/metrics/gen_ai.client.token.usage

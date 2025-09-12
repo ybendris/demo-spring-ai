@@ -1,0 +1,34 @@
+### POST translate
+POST http://localhost:8080/chat
+Content-Type: application/json
+
+{
+  "message": "Je m'appelle Yannis"
+}
+
+
+### POST translate
+POST http://localhost:8080/chat
+Content-Type: application/json
+
+{
+  "message": "Comment je m'appelle ?"
+}
+
+
+### POST translate
+POST http://localhost:8080/chat
+Content-Type: application/json
+
+{
+  "message": "What is the current collection ?"
+}
+
+
+### POST translate
+POST http://localhost:8080/chat/streaming
+Content-Type: application/json
+
+{
+  "message": "Comment je m'appelle, répond en pirate sous forme de poème"
+}
