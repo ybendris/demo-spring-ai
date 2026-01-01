@@ -1,3 +1,21 @@
+## 🎤 Démonstration & Présentations techniques
+
+Ce projet n’est pas uniquement une démo technique : il a été conçu pour être **présenté et expliqué en live**.
+
+Je suis en mesure de proposer une **présentation claire et pédagogique** de cette démo lors de :
+- afterworks et meetups de communautés de développeurs
+- talks techniques (formats courts ou longs)
+- démonstrations internes (équipes produit, tech ou innovation)
+- entretiens techniques ou sessions de recrutement
+
+La présentation peut être adaptée au public (développeurs backend, fullstack, architectes, équipes produit) et couvre notamment :
+- les concepts clés de **Spring AI**
+- les cas d’usage concrets de **Tool Calling**, **RAG**, **Vector Store**
+- les bonnes pratiques d’architecture et d’observabilité
+- les limites actuelles et retours d’expérience
+
+👉 Objectif : **vulgariser des sujets avancés autour de l’IA générative**, tout en restant pragmatique et orienté usage réel en entreprise.
+
 # Spring AI 1.0.1
 
 - **Aperçu général**
