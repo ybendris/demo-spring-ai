@@ -6,7 +6,7 @@ import dev.ybendris.demo_spring_ai.translation.model.ProductTranslation;
 import dev.ybendris.demo_spring_ai.translation.repository.TranslationRepository;
 import dev.ybendris.demo_spring_ai.translation.service.TranslationService;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.vertexai.gemini.VertexAiGeminiChatOptions;
+import org.springframework.ai.google.genai.GoogleGenAiChatOptions;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;
@@ -36,7 +36,7 @@ public class StandardTranslationService implements TranslationService {
 
     public StandardTranslationService(ChatClient.Builder builder, TranslationRepository translationRepository) {
         this.chatClient = builder
-                .defaultOptions(VertexAiGeminiChatOptions.builder().build())
+                .defaultOptions(GoogleGenAiChatOptions.builder())
                 .build();
         this.translationRepository = translationRepository;
     }

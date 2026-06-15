@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/graalvm-community:21 AS builder
+FROM ghcr.io/graalvm/graalvm-community:25 AS builder
 
 ARG APP_NAME
 

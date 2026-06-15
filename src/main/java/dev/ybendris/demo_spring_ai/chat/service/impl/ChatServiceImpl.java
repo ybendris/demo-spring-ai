@@ -6,7 +6,7 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.InMemoryChatMemoryRepository;
 import org.springframework.ai.chat.memory.MessageWindowChatMemory;
-import org.springframework.ai.vertexai.gemini.VertexAiGeminiChatOptions;
+import org.springframework.ai.google.genai.GoogleGenAiChatOptions;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
@@ -17,7 +17,7 @@ public class ChatServiceImpl implements ChatService {
 
     public ChatServiceImpl(ChatClient.Builder builder) {
         this.chatClient = builder
-                .defaultOptions(VertexAiGeminiChatOptions.builder().build())
+                .defaultOptions(GoogleGenAiChatOptions.builder())
                 .defaultAdvisors(
                         MessageChatMemoryAdvisor.builder(MessageWindowChatMemory.builder()
                                 .chatMemoryRepository(new InMemoryChatMemoryRepository())

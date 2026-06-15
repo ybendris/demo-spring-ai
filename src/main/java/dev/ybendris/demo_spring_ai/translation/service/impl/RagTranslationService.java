@@ -9,12 +9,12 @@ import dev.ybendris.demo_spring_ai.translation.service.TranslationService;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.ai.document.Document;
+import org.springframework.ai.google.genai.GoogleGenAiChatOptions;
 import org.springframework.ai.rag.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.rag.generation.augmentation.ContextualQueryAugmenter;
 import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
-import org.springframework.ai.vertexai.gemini.VertexAiGeminiChatOptions;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Service;
 
@@ -66,7 +66,7 @@ public class RagTranslationService implements TranslationService {
 
     public RagTranslationService(ChatClient.Builder builder, VectorStore vectorStore, TranslationRepository translationRepository) {
         this.chatClient = builder
-                .defaultOptions(VertexAiGeminiChatOptions.builder().build())
+                .defaultOptions(GoogleGenAiChatOptions.builder())
                 .build();
         this.vectorStore = vectorStore;
         this.translationRepository = translationRepository;

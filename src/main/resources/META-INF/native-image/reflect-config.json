@@ -1487,7 +1487,7 @@
   "name":"io.micrometer.influx.InfluxMeterRegistry"
 },
 {
-  "name":"io.micrometer.java21.instrument.binder.jdk.VirtualThreadMetrics"
+  "name":"io.micrometer.java25.instrument.binder.jdk.VirtualThreadMetrics"
 },
 {
   "name":"io.micrometer.jmx.JmxMeterRegistry"

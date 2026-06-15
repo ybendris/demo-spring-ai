@@ -19,7 +19,7 @@ cache:
 
 # Maven Build
 build:
-  image: maven:3.9.11-eclipse-temurin-21
+  image: maven:3.9.11-eclipse-temurin-25
   stage: build
   script:
     - APP_NAME=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)
@@ -38,7 +38,7 @@ build:
 
 # Maven Test
 test:
-  image: maven:3.9.11-eclipse-temurin-21
+  image: maven:3.9.11-eclipse-temurin-25
   stage: test
   dependencies:
     - build
